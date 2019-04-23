@@ -1,0 +1,56 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', 'PagesController@index');
+
+Route::get('/Services', 'PagesController@MoreinfoServices');
+
+Route::get('/Team', 'PagesController@MoreinfoTeam');
+
+Route::get('/Statistiques', 'PagesController@Statistiques');
+
+Route::get('/Ordonance', 'PagesController@Ordonance');
+
+Route::get('/Facture', 'PagesController@Facture');
+
+
+
+Route::get('/Agenda', 'PagesController@Agenda');
+
+Route::resource('posts','PostsController');
+
+Route::post('/Conseil','Demande_Conseil@store')->name('DemandeConseil.store');
+
+Route::get('/DConseil', 'Demande_Conseil@Liste');
+
+
+Route::post('/RDV','RdvDemande@store')->name('RdvDemande.store');
+
+Route::get('/DRDV', 'RdvDemande@Liste');
+
+Route::resource('Chambres','ChambreController');
+
+Route::resource('Patients','PatientController');
+
+Route::resource('PatHosp','PatHospitaliseController');
+
+
+
+Route::resource('Medecin','MedecinController');
+
+Route::resource('/TodaysRdvs','RdvController');
+
+Route::put('/RDVupdating/{id}','RdvDemande@updating')->name('RdvDemande.updating');
+
+Auth::routes();
+

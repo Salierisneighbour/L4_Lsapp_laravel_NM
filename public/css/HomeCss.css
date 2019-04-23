@@ -1,0 +1,61 @@
+
+ 
+ 
+ p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+            font-weight: 300;
+            line-height: 1.7em;
+            color: #999;
+        } 
+.about {
+            margin: 2em;
+        }
+
+        .tableimage {
+            margin-bottom: 1em;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            font-family: Lato;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) !important;
+
+        }
+
+        .carousel-caption h1 {
+            font-size: 500%;
+            text-transform: uppercase;
+            text-decoration: 1px 1px 10px #000;
+
+        }
+
+ .my-form {
+            color: #305896;
+        }
+
+        .my-form .btn-default {
+            background-color: #305896;
+            color: #fff;
+            border-radius: 0;
+        }
+
+        .my-form .btn-default:hover {
+            background-color: #4498C6;
+            color: #fff;
+        }
+
+        .my-form .form-control {
+            border-radius: 0;
+        }
+      #margintop
+      {
+          margin-top : 3rem !important
+      }
