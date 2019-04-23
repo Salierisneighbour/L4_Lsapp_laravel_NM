@@ -20,12 +20,7 @@ class PagesController extends Controller
     public function Statistiques(){
         return view('AdminPages.Statistiques');
     }
-    public function Ordonance(){
-        return view('AdminPages.Ordonance');
-    }
-    public function Facture(){
-        return view('AdminPages.Facture');
-    }
+   
     public function DRDV(){
         return view('AdminPages.DemandeRDV');
     }

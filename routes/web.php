@@ -19,9 +19,9 @@ Route::get('/Team', 'PagesController@MoreinfoTeam');
 
 Route::get('/Statistiques', 'PagesController@Statistiques');
 
-Route::get('/Ordonance', 'PagesController@Ordonance');
+Route::get('/Ordonance/{id}', 'FOController@Ordonance')->name('Ordonance');
 
-Route::get('/Facture', 'PagesController@Facture');
+Route::get('/Facture/{id}', 'FOController@Facture')->name('Facture');
 
 
 
@@ -53,4 +53,6 @@ Route::resource('/TodaysRdvs','RdvController');
 Route::put('/RDVupdating/{id}','RdvDemande@updating')->name('RdvDemande.updating');
 
 Auth::routes();
+
+
 

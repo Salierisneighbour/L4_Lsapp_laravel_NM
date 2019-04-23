@@ -81,8 +81,16 @@
                                 <td>{{$Medecin->NomMedecin." ".$Medecin->PrenomMedecin}}</td>
                                 @endif
                                 @endforeach
-                                <td><button type="button" class="btn btn-success">Ordonance</button></td>
-                                <td><button type="button" class="btn btn-info">Facture</button></td>
+                                <td> <form action="{{route('Ordonance',$patient->id_patient)}}" method="GET">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Ordonance</button>
+                                   
+                                </form></td>
+                                <td><form action="{{route('Facture',$patient->id_patient)}}" method="GET">
+                                    @csrf
+                                    <button type="submit" class="btn btn-info">Facture</button>
+
+                                </form></td>
                                 <td>
                                     <p data-placement="top" data-toggle="tooltip" title="Edit"><button
                                             class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal"

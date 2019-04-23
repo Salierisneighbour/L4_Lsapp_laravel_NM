@@ -18,12 +18,12 @@
                             <div class="form-group">
                                     <label for="IDfact">Numero de la facture</label>
                                     <input type="text" class="form-control" id="IDfact"
-                                        placeholder="Numero de la facture" readonly>
+                                        placeholder="Numero de la facture">
                                 </div>
                                 <div class="form-group">
                                         <label for="Nomdupatient">Nom du patient</label>
-                                        <input type="text" class="form-control" id="Nomdupatient"
-                                            placeholder="Nom du patient">
+                                <input type="text" class="form-control" id="Nomdupatient" value="{{$Patient->NomPatient." ".$Patient->PrenomPatient}}"
+                                            readonly>
                                     </div>
                                 <div class="form-group">
                                         <label for="Modepay">Mode de payement</label>

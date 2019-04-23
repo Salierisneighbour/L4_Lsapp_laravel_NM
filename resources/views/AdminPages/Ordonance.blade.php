@@ -23,7 +23,7 @@
                                 <div class="form-group">
                                         <label for="Nomdupatient">Nom du patient</label>
                                         <input type="text" class="form-control" id="Nomdupatient"
-                                            placeholder="Nom du patient">
+                                        value="{{$Patient->NomPatient." ".$Patient->PrenomPatient}}" readonly>
                                     </div>
                                     <div class="form-group">
                                             <label for="obrservation">Obrservation</label>
