@@ -17,9 +17,11 @@
                <div class="container-fluid">
                    <div class="row">
                        @foreach($posts as $post)
+                       
                        <div class="col-md-6" style="margin-bottom:2rem;">
                            <div class="card">
-                               <img class="card-img-top img-fluid" src="images/Directeur.jpg" >
+                               
+                               <img class="card-img-top " src="storage/cover_images/{{$post->cover_image}}" width="100%" height="300">
                                <div class="card-body">
                                <h4 class="card-title">{{$post->title}}</h4>
                                <p class="card-text">{{$post->Fbody}}</p>

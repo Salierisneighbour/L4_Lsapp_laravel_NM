@@ -14,8 +14,8 @@
     <div class=container>
         <div class="row">
             <div class="col-12">
-                <form method="post"  action="{{route('posts.store')}}" >
-                    {{csrf_field()}}
+                <form method="post"  action="{{route('posts.store')}}" enctype="multipart/form-data">
+                    {{csrf_field()}} 
                     <div class="form-group">
                         <label for="Title">Titre de la nouvauté</label>
                         <input type="Text" class="form-control" id="Title" name="title"
@@ -40,7 +40,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Ajouter l'image</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <input name="cover_image" type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
             </div>
         </div>
