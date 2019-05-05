@@ -178,10 +178,37 @@
                                     <label for="form-etat">Etat civil</label>
                                     <input name="etatcivil" type="text" class="form-control" id="form-etat" placeholder="Etat Civil" value="{{$patient->EtatCivil}}">
                                 </div>
+                                
+                                @if($patient->Assurance=="CNSS")
                                 <div class="form-group">
-                                    <label for="form-Assur">Assurence</label>
-                                    <input name="assurence" type="text" class="form-control" id="form-Assur" placeholder="Assurence" value="{{$patient->Assurance}}">
+                                        <label for="form-assure">Assurence</label>
+                                        <select name="assurence" id="form-assure" class="form-control">
+                                        <option selected value="CNSS">CNSS</option>
+                                        <option value="CNOPS">CNOPS</option>
+                                        <option value="Autre">Autre</option>
+                                        </select>
                                 </div>
+                                @else
+                                    @if($patient->Assurance=="CNOPS")
+                                    <div class="form-group">
+                                            <label for="form-assure">Assurence</label>
+                                            <select name="assurence" id="form-assure" class="form-control">
+                                            <option selected value="CNOPS">CNOPS</option>
+                                            <option value="CNSS">CNSS</option>
+                                            <option value="Autre">Autre</option>
+                                            </select>
+                                    </div>
+                                    @else
+                                    <div class="form-group">
+                                            <label for="form-assure">Assurence</label>
+                                            <select name="assurence" id="form-assure" class="form-control">
+                                            <option selected value="Autre">Autre</option>
+                                            <option value="CNSS">CNSS</option>
+                                            <option value="CNOPS">CNOPS</option>
+                                            </select>
+                                    </div>
+                                    @endif
+                                @endif
                                 <input type="hidden" name="_method" value="PUT">
                                 
                             
@@ -265,7 +292,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="form-Dn">Date de naissance</label>
-                                <input  name="datedenaissance" type="text" class="form-control" id="form-Dn"  placeholder="Date de naissance">
+                                <input  name="datedenaissance" type="date" class="form-control" id="form-Dn"  placeholder="Date de naissance">
                             </div>
                             <div class="form-group">
                                 <label for="form-prof">Profession</label>
@@ -277,10 +304,15 @@
                                 <input  name="etatcivil" type="text" class="form-control" id="form-etat"
                                     placeholder="Etat Civil">
                             </div>
+                          
                             <div class="form-group">
-                                <label for="form-assure">Assurence</label>
-                                <input  name="assurence" type="text" class="form-control" id="form-assure"
-                                    placeholder="Assurence">
+                                    <label for="form-assure">Assurence</label>
+                                    <select name="assurence" id="form-assure" class="form-control">
+                                    <option selected>Selectionez...</option>
+                                    <option value="CNSS">CNSS</option>
+                                    <option value="CNOPS">CNOPS</option>
+                                    <option value="Autre">Autre</option>
+                                    </select>
                             </div>
                            
 

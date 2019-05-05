@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group">
                             <label for="form-subject">Date de naissance</label>
-                            <input type="text" class="form-control" id="form-subject" placeholder="Date de naissance" name="DNPatient">
+                            <input type="date" class="form-control" id="form-subject" placeholder="Date de naissance" name="DNPatient">
                         </div>
                         <div class="form-group">
                                 <label for="form-subject">Profession</label>
@@ -55,10 +55,16 @@
                                     <label for="form-subject">Etat Civil</label>
                                     <input type="text" class="form-control" id="form-subject" placeholder="Etat Civil" name="EtatCivil">
                                 </div>
+                                
                                 <div class="form-group">
-                                        <label for="form-subject">Assurence</label>
-                                        <input type="text" class="form-control" id="form-subject" placeholder="Assurence" name="AssurencePatient">
-                                    </div>
+                                    <label for="Assurence">Assurence</label>
+                                    <select name="AssurencePatient" id="Assurence" class="form-control">
+                                    <option selected>Selectionez...</option>
+                                    <option value="CNSS">CNSS</option>
+                                    <option value="CNOPS">CNOPS</option>
+                                    <option value="Autre">Autre</option>
+                                    </select>
+                                </div>
                     <div class="form-group">
                         <label for="form-message">Motif</label>
                         <textarea class="form-control" id="form-message" placeholder="Motif" name="Motif"></textarea>

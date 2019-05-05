@@ -98,15 +98,24 @@
                                                 </div>
                                     
                                     <div class="form-group">
+                                        
                                         <label for="form-Drdv">Date du rendez-vous</label>
-                                        <input name ="daterendezvous" type="text" class="form-control" id="form-Drdv" placeholder="Date du rendez-vous" ">
+                                    
+                                        <input   name ="daterendezvous" type="text" class="form-control form_datetime" id="form-Drdv" placeholder="Date du rendez-vous">
+                                       
+                                                 
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label for="form-motif">Motif</label>
                                         <input name ="motif" type="text" class="form-control" id="form-motif" placeholder="Motif"">
                                     </div>
         
-                               
+                                   
+                                            
+                                            
+                                            
+                                   
         
                                 
                             

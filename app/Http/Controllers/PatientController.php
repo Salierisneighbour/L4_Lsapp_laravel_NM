@@ -61,7 +61,7 @@ class PatientController extends Controller
             'datedenaissance' => 'required|date_format:Y-m-d',
             'profession' => 'required|alpha|max:50',
             'etatcivil' => 'required|alpha|max:30',
-            'assurence' => ['required',Rule::in(['CNOPS','CNSS'])]
+            'assurence' => ['required',Rule::in(['CNOPS','CNSS','Autre'])]
 
          ],
         [
@@ -88,7 +88,7 @@ class PatientController extends Controller
           'profession.max' => "la profession est trop long",
           'etatcivil.max' => "l'etat civiL est trop long",
           'assurence.required' => "l'assurence est obligatoire",
-          'assurence.in' => "l'assurence doit être soit CNOPS ou CNSS",
+          'assurence.in' => "Assurence non valide",
           
           'telephone.regex' => "telephone invalide"
           
@@ -154,7 +154,7 @@ class PatientController extends Controller
             'datedenaissance' => 'required|date_format:Y-m-d',
             'profession' => 'required|alpha|max:50',
             'etatcivil' => 'required|alpha|max:30',
-            'assurence' => ['required',Rule::in(['CNOPS','CNSS'])]
+            'assurence' => ['required',Rule::in(['CNOPS','CNSS','Autre'])]
 
          ],
         [
@@ -181,7 +181,7 @@ class PatientController extends Controller
           'profession.max' => "la profession est trop long",
           'etatcivil.max' => "l'etat civiL est trop long",
           'assurence.required' => "l'assurence est obligatoire",
-          'assurence.in' => "l'assurence doit être soit CNOPS ou CNSS",
+          'assurence.in' => "Assurence non valide",
           
           'telephone.regex' => "telephone invalide"
           

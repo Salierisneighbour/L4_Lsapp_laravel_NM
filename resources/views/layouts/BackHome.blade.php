@@ -20,6 +20,11 @@
     <link href="{{asset('https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic')}}" rel="stylesheet"
         type="text/css">
     <link rel="stylesheet" href="{{asset('css/BackendCss.css')}}">
+   
+    
+  
+    
+    
      @yield('Css')
 
     
@@ -155,11 +160,16 @@
     </script>
     <script src="{{asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('bootstrap-datetimepicker.min.css')}}">
+
+	
     <script>
          $('textarea').ckeditor();
          //$('.textarea').ckeditor(); // if class is prefered.
     </script>
+    
     @yield('javascript')
+
 </body>
 
 </html>

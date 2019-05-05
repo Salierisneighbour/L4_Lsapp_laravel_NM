@@ -21,7 +21,7 @@ class Envoidemande extends Controller
             'DNPatient' => 'required|date_format:Y-m-d',
             'ProfessionPatient' => 'required|alpha|max:50',
             'EtatCivil' => 'required|alpha|max:30',
-            'AssurencePatient' => ['required',Rule::in(['CNOPS','CNSS'])],
+            'AssurencePatient' => ['required',Rule::in(['CNOPS','CNSS','Autre'])],
             'Motif' => 'required|string|min:10|max:16777216'
 
          ],
@@ -49,7 +49,7 @@ class Envoidemande extends Controller
           'ProfessionPatient.max' => "la profession est trop long",
           'EtatCivil.max' => "l'etat civiL est trop long",
           'AssurencePatient.required' => "l'assurence est obligatoire",
-          'AssurencePatient.in' => "l'assurence doit être soit CNOPS ou CNSS",
+          'AssurencePatient.in' => "Assurence non valide",
           "TelPatient.regex" => "Numero de telephone non valide",
           "Motif.required" => "le motif doit être saisis",
           "Motif.max" => "le champ motif est trop long",

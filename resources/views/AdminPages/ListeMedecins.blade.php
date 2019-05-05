@@ -154,7 +154,7 @@
                                 </div>
                             <div class="form-group">
                                 <label for="form-date">Date de naissance</label>
-                                <input  name="DateN" type="text" class="form-control" id="form-date" placeholder="Date de naissance" value="{{$Medecin->DateNaissance}}">
+                                <input  name="DateN" type="date" class="form-control" id="form-date" placeholder="Date de naissance" value="{{$Medecin->DateNaissance}}">
                             </div>
                             <div class="form-group">
                                 <label for="form-presta">Prestation</label>
@@ -320,7 +320,7 @@
                         </div>
                         <div class="form-group">
                             <label for="form-date">Date de naissance</label>
-                            <input  name="DateN" type="text" class="form-control" id="form-date"
+                            <input  name="DateN" type="date" class="form-control" id="form-date"
                                 placeholder="Date de naissance">
                         </div>
                         <div class="form-group">

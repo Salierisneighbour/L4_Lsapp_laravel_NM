@@ -157,11 +157,11 @@
                             
                             <div class="form-group">
                                 <label for="form-DB">Date debut d'occupation</label>
-                                <input name ="DBOcuup" type="text" class="form-control" id="form-DB"  value="{{$Occup->DateDebutOccup}}">
+                                <input name ="DBOcuup" type="date" class="form-control" id="form-DB"  value="{{$Occup->DateDebutOccup}}">
                             </div>
                             <div class="form-group">
                                 <label for="form-DF">Date fin d'occupation</label>
-                                <input name ="DFOcuup" type="text" class="form-control" id="form-DF"  value="{{$Occup->DateFinOccup}}">
+                                <input name ="DFOcuup" type="date" class="form-control" id="form-DF"  value="{{$Occup->DateFinOccup}}">
                             </div>
 
                             <input type="hidden" name="_method" value="PUT">
@@ -238,11 +238,11 @@
                               
                             <div class="form-group">
                                 <label for="form-DB">Date debut d'occupation</label>
-                                <input name ="DBOcuup" type="text" class="form-control" id="form-DB" placeholder="Date debut d'occupation">
+                                <input name ="DBOcuup" type="date" class="form-control" id="form-DB" placeholder="Date debut d'occupation">
                             </div>
                             <div class="form-group">
                                 <label for="form-DF">Date fin d'occupation</label>
-                                <input name ="DFOcuup" type="text" class="form-control" id="form-DF" placeholder="Date fin d'occupation">
+                                <input name ="DFOcuup" type="date" class="form-control" id="form-DF" placeholder="Date fin d'occupation">
                             </div>
 
                             

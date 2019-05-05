@@ -11,7 +11,7 @@
                     <form>
                             <div class="form-group">
                                 <label for="Date">Date</label>
-                                <input type="text" class="form-control" id="Date"
+                                <input type="date" class="form-control" id="Date"
                                     placeholder="Date">
                             </div>
 
