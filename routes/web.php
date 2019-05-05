@@ -52,6 +52,8 @@ Route::resource('/TodaysRdvs','RdvController');
 
 Route::put('/RDVupdating/{id}','RdvDemande@updating')->name('RdvDemande.updating');
 
+Route::post('/FPrint/{id}','FOController@Fprint')->name('PrintFacture');
+
 Auth::routes();
 
 
