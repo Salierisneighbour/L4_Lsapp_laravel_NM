@@ -14,12 +14,12 @@
     <div class=container>
         <div class="row">
             <div class="col-12">
-                <form method="post" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data" class="needs-validation" novalidate>
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="Title">Titre de la nouvauté</label>
                         <input type="Text" class="form-control" id="Title" name="title"
-                            placeholder="Titre de la nouvauté" , value="{{$post->title}}">
+                            placeholder="Titre de la nouvauté" , value="{{$post->title}}" required>
                     </div>
 
                     <div class="form-group">

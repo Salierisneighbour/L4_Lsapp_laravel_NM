@@ -132,7 +132,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="my-form" method="POST" action="{{route('PatHosp.update' ,$Occup->id)}}">
+                            <form class="my-form needs-validation" method="POST" action="{{route('PatHosp.update' ,$Occup->id)}}"  novalidate>
                                 {{csrf_field()}}
                                 <div class="form-group">
                                 <label for="form-ID">ID Patient</label>
@@ -141,7 +141,7 @@
 
                             <div class="form-group">
                                 <label for="inputState3">Selectioner une chambre</label>
-                                <select name="idchambre" id="inputState3" class="form-control">
+                                <select name="idchambre" id="inputState3" class="form-control" required>
                                 @foreach ($Chambres as $chambre)
                                 @if($chambre->id_chambre == $Occup->id_chambre)
                                 <option selected>{{$chambre->NumChambre}}</option>
@@ -157,11 +157,11 @@
                             
                             <div class="form-group">
                                 <label for="form-DB">Date debut d'occupation</label>
-                                <input name ="DBOcuup" type="date" class="form-control" id="form-DB"  value="{{$Occup->DateDebutOccup}}">
+                                <input name ="DBOcuup" type="date" class="form-control" id="form-DB"  value="{{$Occup->DateDebutOccup}}" required>
                             </div>
                             <div class="form-group">
                                 <label for="form-DF">Date fin d'occupation</label>
-                                <input name ="DFOcuup" type="date" class="form-control" id="form-DF"  value="{{$Occup->DateFinOccup}}">
+                                <input name ="DFOcuup" type="date" class="form-control" id="form-DF"  value="{{$Occup->DateFinOccup}}" required>
                             </div>
 
                             <input type="hidden" name="_method" value="PUT">
@@ -212,11 +212,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form class="my-form" method="POST" action="{{route('PatHosp.store')}}">
+                        <form class="my-form needs-validation" method="POST" action="{{route('PatHosp.store')}}"  novalidate>
                                 {{csrf_field()}}
                                 <div class="form-group">
                                         <label for="inputState1">Selectioner un patient</label>
-                                        <select name="idpatient" id="inputState1" class="form-control">
+                                        <select name="idpatient" id="inputState1" class="form-control" required>
                                           <option selected>Selectioner...</option>
                                           
                                           @foreach($PatientsNonHosp as $PatientNonHosp)        
@@ -228,7 +228,7 @@
                                  </div>
                                  <div class="form-group">
                                                 <label for="inputState2">Selectioner une chambre</label>
-                                                <select name="idchambre" id="inputState2" class="form-control">
+                                                <select name="idchambre" id="inputState2" class="form-control" required>
                                                 <option selected>Selectioner...</option>
                                                 @foreach($Chambreslibre as $Chambreslibre)
                                                 <option value="{{$Chambreslibre->id_chambre}}">{{$Chambreslibre->NumChambre}}</option>
@@ -238,11 +238,11 @@
                               
                             <div class="form-group">
                                 <label for="form-DB">Date debut d'occupation</label>
-                                <input name ="DBOcuup" type="date" class="form-control" id="form-DB" placeholder="Date debut d'occupation">
+                                <input name ="DBOcuup" type="date" class="form-control" id="form-DB" placeholder="Date debut d'occupation" required>
                             </div>
                             <div class="form-group">
                                 <label for="form-DF">Date fin d'occupation</label>
-                                <input name ="DFOcuup" type="date" class="form-control" id="form-DF" placeholder="Date fin d'occupation">
+                                <input name ="DFOcuup" type="date" class="form-control" id="form-DF" placeholder="Date fin d'occupation" required>
                             </div>
 
                             

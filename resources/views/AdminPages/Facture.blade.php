@@ -8,17 +8,17 @@
 <div class="container margin">
         <div class="row" style="margin-bottom:2rem;">
             <div class="col-6">
-                    <form>
+                    <form class="needs-validation" novalidate>
                             <div class="form-group">
                                 <label for="Date">Date</label>
                                 <input type="date" class="form-control" id="Date"
-                                    placeholder="Date">
+                                    placeholder="Date" required>
                             </div>
 
                             <div class="form-group">
                                     <label for="IDfact">Numero de la facture</label>
                                     <input type="text" class="form-control" id="IDfact"
-                                        placeholder="Numero de la facture">
+                                        placeholder="Numero de la facture" required>
                                 </div>
                                 <div class="form-group">
                                         <label for="Nomdupatient">Nom du patient</label>
@@ -27,7 +27,7 @@
                                     </div>
                                 <div class="form-group">
                                         <label for="Modepay">Mode de payement</label>
-                                        <select class="form-control" id="Modepay">
+                                        <select class="form-control" id="Modepay" required>
                                                 <option>Espéces</option>
                                                 <option>Chéque</option>
                                                 <option>Virement</option>
@@ -36,23 +36,23 @@
                                     <div class="form-group">
                                             <label for="Montant">Montant</label>
                                             <input type="text" class="form-control" id="Montant"
-                                                placeholder="Montant" >
+                                                placeholder="Montant" required>
                                         </div>  
                                         <div class="form-group">
                                                 <label for="Pharmacie">Pharmacie</label>
                                                 <input type="text" class="form-control" id="Pharmacie"
-                                                    placeholder="Pharmacie" >
+                                                    placeholder="Pharmacie" required>
                                             </div>  
                                             <div class="form-group">
                                                     <label for="Hospitalisation">Hospitalisation</label>
                                                     <input type="text" class="form-control" id="Hospitalisation"
-                                                        placeholder="Hospitalisation" >
+                                                        placeholder="Hospitalisation" required>
                                                 </div>  
                                                 <div class="form-group">
                                                         <label for="Consultation">Consultation</label>
                                                         <input type="text" class="form-control" id="Consultation"
-                                                            placeholder="Consultation" >
-                                                    </div>  
+                                                            placeholder="Consultation" required>
+                                                </div>  
                         </form>
 
 

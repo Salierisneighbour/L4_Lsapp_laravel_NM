@@ -149,7 +149,7 @@
     <script src="{{asset('jquery/jquery.min.js')}}"></script>
     <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/Backendjs.js')}}"></script>
-    
+    <script src="{{asset('js/FormValidation.js')}}"></script>
     <script type="text/javascript">
     /*Side bar function */
     $(document).ready(function () {
@@ -160,7 +160,7 @@
     </script>
     <script src="{{asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
-    <link rel="stylesheet" href="{{asset('bootstrap-datetimepicker.min.css')}}">
+    
 
 	
     <script>

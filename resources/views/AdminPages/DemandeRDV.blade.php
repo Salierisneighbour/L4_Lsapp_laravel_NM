@@ -78,15 +78,15 @@
                                 </div>
                                 <div class="modal-body">
                                     
-                                <form class="my-form" method="POST" action="{{route('TodaysRdvs.update',$Demande->id)}}">
+                                <form class="my-form needs-validation" method="POST" action="{{route('TodaysRdvs.update',$Demande->id)}}"  novalidate>
                                         {{csrf_field()}}
                                           
                 
         
                                             <div class="form-group">
                                                     <label for="inputState2">Selectioner un medecin</label>
-                                                    <select name="idmedecin" id="inputState2" class="form-control">
-                                                    <option selected>Selectioner...</option>
+                                                    <select name="idmedecin" id="inputState2" class="form-control" required>
+                                                    <option selected value="">Selectioner...</option>
                                                     @foreach ($Medecins as $Medecin)
                                                    
                                                    
@@ -101,14 +101,14 @@
                                         
                                         <label for="form-Drdv">Date du rendez-vous</label>
                                     
-                                        <input   name ="daterendezvous" type="text" class="form-control form_datetime" id="form-Drdv" placeholder="Date du rendez-vous">
+                                        <input   name ="daterendezvous" type="text" class="form-control form_datetime" id="form-Drdv" placeholder="Date du rendez-vous" required>
                                        
                                                  
                                         
                                     </div>
                                     <div class="form-group">
                                         <label for="form-motif">Motif</label>
-                                        <input name ="motif" type="text" class="form-control" id="form-motif" placeholder="Motif"">
+                                        <input name ="motif" type="text" class="form-control" id="form-motif" placeholder="Motif" required>
                                     </div>
         
                                    

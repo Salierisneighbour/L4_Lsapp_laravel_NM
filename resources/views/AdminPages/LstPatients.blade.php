@@ -118,28 +118,28 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                        <form class="my-form" method="POST" action="{{route('Patients.update', $patient->id_patient)}}">
+                        <form class="my-form needs-validation" method="POST" action="{{route('Patients.update', $patient->id_patient)}}" novalidate>
                                 {{csrf_field()}}
                                 <div class="form-group">
                                     <label for="form-nom">Nom</label>
-                                    <input name="nom" type="text" class="form-control" id="form-nom" placeholder="Nom" value="{{$patient->NomPatient}}">
+                                    <input name="nom" type="text" class="form-control" id="form-nom" placeholder="Nom" value="{{$patient->NomPatient}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="form-prenom">Prenom</label>
-                                    <input  name="prenom"  type="text" class="form-control" id="form-prenom" placeholder="Prenom" value="{{$patient->PrenomPatient}}">
+                                    <input  name="prenom"  type="text" class="form-control" id="form-prenom" placeholder="Prenom" value="{{$patient->PrenomPatient}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="form-adrs">Adresse</label>
-                                    <input  name="adresse" type="text" class="form-control" id="form-adrs" placeholder="Adresse" value="{{$patient->AdrsPatient}}">
+                                    <input  name="adresse" type="text" class="form-control" id="form-adrs" placeholder="Adresse" value="{{$patient->AdrsPatient}}" required>
                                 </div>
     
                                 <div class="form-group">
                                     <label for="form-tel">Telephone</label>
-                                    <input name="telephone" type="text" class="form-control" id="form-tel"   placeholder="Telephone" value="{{$patient->TelPatient}}">
+                                    <input name="telephone" type="text" class="form-control" id="form-tel"   placeholder="Telephone" value="{{$patient->TelPatient}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="form-email">Email</label>
-                                    <input   name="email" type="email" class="form-control" id="form-email" placeholder="email" value="{{$patient->email}}">
+                                    <input   name="email" type="email" class="form-control" id="form-email" placeholder="email" value="{{$patient->email}}" required>
                                 </div>
                                 <div class="form-group">
                                     <p><label for="form-subject">Sexe</label></p>
@@ -147,42 +147,42 @@
 
                                     <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio1" value="Masculin" checked>
+                                                id="inlineRadio1" value="Masculin" checked required>
                                             <label class="form-check-label" for="inlineRadio1">Masculin</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio2" value="Feminin">
+                                                id="inlineRadio2" value="Feminin" required>
                                             <label class="form-check-label" for="inlineRadio2">Feminin</label>
                                    @else 
                                    <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio1" value="Masculin" >
+                                            id="inlineRadio1" value="Masculin" required>
                                         <label class="form-check-label" for="inlineRadio1">Masculin</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio2" value="Feminin" checked>
+                                            id="inlineRadio2" value="Feminin" checked required>
                                         <label class="form-check-label" for="inlineRadio2">Feminin</label>
                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="form-DN">Date de naissance</label>
-                                    <input name="datedenaissance" type="text" class="form-control" id="form-DN" placeholder="Date de naissance" value="{{$patient->DateNaissance}}">
+                                    <input name="datedenaissance" type="text" class="form-control" id="form-DN" placeholder="Date de naissance" value="{{$patient->DateNaissance}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="form-prof">Profession</label>
-                                    <input name="profession" type="text" class="form-control" id="form-prof" placeholder="Profession" value="{{$patient->Profession}}">
+                                    <input name="profession" type="text" class="form-control" id="form-prof" placeholder="Profession" value="{{$patient->Profession}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="form-etat">Etat civil</label>
-                                    <input name="etatcivil" type="text" class="form-control" id="form-etat" placeholder="Etat Civil" value="{{$patient->EtatCivil}}">
+                                    <input name="etatcivil" type="text" class="form-control" id="form-etat" placeholder="Etat Civil" value="{{$patient->EtatCivil}}" required>
                                 </div>
                                 
                                 @if($patient->Assurance=="CNSS")
                                 <div class="form-group">
                                         <label for="form-assure">Assurence</label>
-                                        <select name="assurence" id="form-assure" class="form-control">
+                                        <select name="assurence" id="form-assure" class="form-control" required>
                                         <option selected value="CNSS">CNSS</option>
                                         <option value="CNOPS">CNOPS</option>
                                         <option value="Autre">Autre</option>
@@ -192,7 +192,7 @@
                                     @if($patient->Assurance=="CNOPS")
                                     <div class="form-group">
                                             <label for="form-assure">Assurence</label>
-                                            <select name="assurence" id="form-assure" class="form-control">
+                                            <select name="assurence" id="form-assure" class="form-control" required>
                                             <option selected value="CNOPS">CNOPS</option>
                                             <option value="CNSS">CNSS</option>
                                             <option value="Autre">Autre</option>
@@ -201,7 +201,7 @@
                                     @else
                                     <div class="form-group">
                                             <label for="form-assure">Assurence</label>
-                                            <select name="assurence" id="form-assure" class="form-control">
+                                            <select name="assurence" id="form-assure" class="form-control" required>
                                             <option selected value="Autre">Autre</option>
                                             <option value="CNSS">CNSS</option>
                                             <option value="CNOPS">CNOPS</option>
@@ -253,62 +253,62 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                    <form class="my-form" method="POST" action="{{route('Patients.store')}}">
+                    <form class="my-form needs-validation" method="POST" action="{{route('Patients.store')}}" novalidate> 
                             {{csrf_field()}}
                             
                             <div class="form-group">
                                 <label for="form-name">Nom</label>
-                                <input  name="nom" type="text" class="form-control" id="form-name" placeholder="Nom">
+                                <input  name="nom" type="text" class="form-control" id="form-name" placeholder="Nom" required>
                             </div>
                             <div class="form-group">
                                 <label for="form-prenom">Prenom</label>
-                                <input name="prenom" type="text" class="form-control" id="form-prenom" placeholder="Prenom">
+                                <input name="prenom" type="text" class="form-control" id="form-prenom" placeholder="Prenom" required>
                             </div>
                             <div class="form-group">
                                 <label for="form-adrs">Adresse</label>
-                                <input  name="adresse" type="text" class="form-control" id="form-adrs" placeholder="Adresse">
+                                <input  name="adresse" type="text" class="form-control" id="form-adrs" placeholder="Adresse" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="form-tel">Telephone</label>
-                                <input name="telephone" type="text" class="form-control" id="form-tel"  placeholder="Telephone">
+                                <input name="telephone" type="text" class="form-control" id="form-tel"  placeholder="Telephone" required>
                             </div>
                             <div class="form-group">
                                 <label for="form-email">Email</label>
-                                <input  name="email" type="email" class="form-control" id="form-email" placeholder="email">
+                                <input  name="email" type="email" class="form-control" id="form-email" placeholder="email" required>
                             </div>
                             <div class="form-group">
                                 <p><label for="form-subject">Sexe</label></p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio1" value="Masculin">
+                                        id="inlineRadio1" value="Masculin" required>
                                     <label class="form-check-label" for="inlineRadio1">Masculin</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio2" value="Feminin">
+                                        id="inlineRadio2" value="Feminin" required>
                                     <label class="form-check-label" for="inlineRadio2">Feminin</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="form-Dn">Date de naissance</label>
-                                <input  name="datedenaissance" type="date" class="form-control" id="form-Dn"  placeholder="Date de naissance">
+                                <input  name="datedenaissance" type="date" class="form-control" id="form-Dn"  placeholder="Date de naissance" required>
                             </div>
                             <div class="form-group">
                                 <label for="form-prof">Profession</label>
                                 <input  name="profession" type="text" class="form-control" id="form-prof"
-                                    placeholder="Profession">
+                                    placeholder="Profession" required>
                             </div>
                             <div class="form-group">
                                 <label for="form-etat">Etat Civil</label>
                                 <input  name="etatcivil" type="text" class="form-control" id="form-etat"
-                                    placeholder="Etat Civil">
+                                    placeholder="Etat Civil" required>
                             </div>
                           
                             <div class="form-group">
                                     <label for="form-assure">Assurence</label>
-                                    <select name="assurence" id="form-assure" class="form-control">
-                                    <option selected>Selectionez...</option>
+                                    <select name="assurence" id="form-assure" class="form-control" required>
+                                    <option selected value="">Selectionez...</option>
                                     <option value="CNSS">CNSS</option>
                                     <option value="CNOPS">CNOPS</option>
                                     <option value="Autre">Autre</option>

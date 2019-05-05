@@ -56,7 +56,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{{asset('jquery/jquery.min.js')}}"></script>
     <script src="{{asset('js/app.js')}}"></script>
-    
+    <script src="{{asset('js/FormValidation.js')}}"></script>
    
     @yield('Javasctipt')
 

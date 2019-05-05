@@ -123,7 +123,7 @@
             </div>
             <div class="modal-body">
                 
-            <form class="my-form" method="POST"  action="{{route('RdvDemande.updating',$RDV->id_rdv)}}">
+            <form class="my-form needs-validation" method="POST"  action="{{route('RdvDemande.updating',$RDV->id_rdv)}}" novalidate>
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="form-id">id du patient</label>
@@ -138,7 +138,7 @@
 
                         <div class="form-group">
                                 <label for="inputState2">Selectioner un medecin</label>
-                                <select name="idmedecin" id="inputState2" class="form-control">
+                                <select name="idmedecin" id="inputState2" class="form-control" required>
                                  @foreach ($Medecins as $Medecin)
                                  @if($Medecin->id_medecin == $RDV->id_medecin)
                                 <option  value="{{$Medecin->id_medecin}}" selected>{{$Medecin->NomMedecin." ".$Medecin->PrenomMedecin}}</option>
@@ -156,11 +156,11 @@
                 
                 <div class="form-group">
                     <label for="form-Drdv">Date du rendez-vous</label>
-                    <input name ="daterendezvous" type="text" class="form-control" id="form-Drdv" value="{{$RDV->Date_RDV}}">
+                    <input name ="daterendezvous" type="text" class="form-control" id="form-Drdv" value="{{$RDV->Date_RDV}}" required>
                 </div>
                 <div class="form-group">
                     <label for="form-motif">Motif</label>
-                    <input name ="motif" type="text" class="form-control" id="form-motif" value="{{$RDV->Motif}}" >
+                    <input name ="motif" type="text" class="form-control" id="form-motif" value="{{$RDV->Motif}}" required>
                 </div>
 
            

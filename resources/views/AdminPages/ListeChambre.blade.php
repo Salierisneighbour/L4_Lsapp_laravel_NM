@@ -88,23 +88,23 @@
               </button>
           </div>
           <div class="modal-body">
-                  <form class="my-form" method="POST"   action="{{ route('Chambres.update', $chambre->id_chambre) }}"  >
+                  <form class="my-form needs-validation" method="POST"   action="{{ route('Chambres.update', $chambre->id_chambre) }}" novalidate >
                           {{csrf_field()}}
                           <div class="form-group">
                                   <label for="form-Num">Numero de la chambre</label>
-                                  <input type="text" class="form-control" id="form-Num" placeholder="Numero de la chambre" name="Numero" value="{{$chambre->NumChambre}}">
+                                  <input type="text" class="form-control" id="form-Num" placeholder="Numero de la chambre" name="Numero" value="{{$chambre->NumChambre}}" required>
                               </div>
                       <div class="form-group">
                           <label for="form-Etage">Etage</label>
-                          <input type="text" class="form-control" id="form-Etage" placeholder="Etage" name="Etage" value="{{$chambre->Etage}}">
+                          <input type="text" class="form-control" id="form-Etage" placeholder="Etage" name="Etage" value="{{$chambre->Etage}}" required>
                       </div>
                       <div class="form-group">
                           <label for="form-Lit">Nombre de lit</label>
-                          <input type="text" class="form-control" id="form-Lit" placeholder="Nombre de lit" name="Lit" value="{{$chambre->Nblit}}">
+                          <input type="text" class="form-control" id="form-Lit" placeholder="Nombre de lit" name="Lit" value="{{$chambre->Nblit}}" required>
                       </div>
                       <div class="form-group">
                         <label for="inputState3">Etat d'occupation</label>
-                        <select name="Etat" id="inputState3" class="form-control">
+                        <select name="Etat" id="inputState3" class="form-control" required>
                         @if($chambre->EtatOccup=="Occupée")
                         <option selected value="Occupée">{{$chambre->EtatOccup}}</option>
                         <option value="Libre">Libre</option>
@@ -193,25 +193,25 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="my-form" method="POST" action="{{route('Chambres.store')}}">
+                    <form class="my-form needs-validation" method="POST" action="{{route('Chambres.store')}}" novalidate>
                             {{csrf_field()}}
                             <div class="form-group">
                                     <label for="form-Num">Numero de la chambre</label>
-                                    <input type="text" class="form-control" id="form-Num" placeholder="Numero de la chambre" name="Numero">
+                                    <input type="text" class="form-control" id="form-Num" placeholder="Numero de la chambre" name="Numero" required>
                                 </div>
                         <div class="form-group">
                             <label for="form-Etage">Etage</label>
-                            <input type="text" class="form-control" id="form-Etage" placeholder="Etage" name="Etage">
+                            <input type="text" class="form-control" id="form-Etage" placeholder="Etage" name="Etage" required>
                         </div>
                         <div class="form-group">
                             <label for="form-Lit">Nombre de lit</label>
-                            <input type="text" class="form-control" id="form-Lit" placeholder="Nombre de lit" name="Lit">
+                            <input type="text" class="form-control" id="form-Lit" placeholder="Nombre de lit" name="Lit" required>
                         </div>
                        
                         <div class="form-group">
                             <label for="inputState3">Etat d'occupation</label>
-                            <select name="Etat" id="inputState3" class="form-control">
-                            <option selected>Selectionez...</option>
+                            <select name="Etat" id="inputState3" class="form-control" required>
+                            <option selected value="">Selectionez...</option>
                             <option value="Occupée">Occupée</option>
                             <option value="Libre">Libre</option>
                            

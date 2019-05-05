@@ -8,23 +8,23 @@
               </button>
             </div>
             <div class="modal-body">
-              <form class="my-form" method="post"  action="{{route('DemandeConseil.store')}}">
+              <form class="my-form needs-validation" method="post"  action="{{route('DemandeConseil.store')}}"  novalidate>
                   {{csrf_field()}}
                     <div class="form-group">
                         <label for="form-name">Nom complet</label>
-                        <input type="text" class="form-control" id="form-name" placeholder="Nom complet" name="fullname">
+                        <input type="text" class="form-control" id="form-name" placeholder="Nom complet" name="fullname" required>
                     </div>
                     <div class="form-group">
                         <label for="form-email">Adresse email</label>
-                        <input type="email" class="form-control" id="form-email" placeholder="Adresse email" name="email">
+                        <input type="email" class="form-control" id="form-email" placeholder="Adresse email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="form-subject">Telephone</label>
-                        <input type="text" class="form-control" id="form-subject" placeholder="Telephone" name="telephone">
+                        <input type="text" class="form-control" id="form-subject" placeholder="Telephone" name="telephone" required>
                     </div>
                     <div class="form-group">
                         <label for="form-message">Envoyer votre message</label>
-                        <textarea class="form-control" id="form-message" placeholder="Message" name="message"></textarea>
+                        <textarea class="form-control" id="form-message" placeholder="Message" name="message" required></textarea>
                     </div>
                     
                
