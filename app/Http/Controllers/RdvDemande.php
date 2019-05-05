@@ -10,29 +10,18 @@ use App\RDV;
 
 class RdvDemande extends Controller
 {
-    public function store(Request $request)
+
+
+
+
+    //maybe need to fix this later
+    public function __construct()
     {
-     
-
-       //create post
-       $Demande = new DemandeRDV;
-       $Demande->NomPatient = $request->input('NomPatient');
-       $Demande->PrenomPatient = $request->input('PrenomPatient');
-       $Demande->AdrsPatient = $request->input('AdrsPatient');
-       $Demande->TelPatient = $request->input('TelPatient');
-       $Demande->Sexe = $request->input('inlineRadioOptions');
-       $Demande->email = $request->input('EmailPatient');
-       $Demande->DateNaissance = $request->input('DNPatient');
-       $Demande->Profession = $request->input('ProfessionPatient');
-       $Demande->EtatCivil = $request->input('EtatCivil');
-       $Demande->Assurance = $request->input('AssurencePatient');
-       $Demande->Motif = $request->input('Motif');
-       $Demande->save();
-
-       return redirect('/')->with('success','Votre Message a été envoyé');
-       
-
+        $this->middleware('auth');
     }
+
+
+
     
     public function Liste()
     {
@@ -47,13 +36,43 @@ class RdvDemande extends Controller
     
     public function updating(Request $request, $id)
     {
+
+
+        $this->validate($request,[
+            //'daterendezvous' => 'requireddate_format:Y-m-d H:i|unique:r_d_v_s,Date_RDV,except,id_patient',
+            'daterendezvous' => 'requireddate_format:Y-m-d H:i|unique:r_d_v_s,Date_RDV,except,id_patient',
+            'motif' => 'required|string|min:10|max:16777216',
+            'idchambre' => 'required|numeric',
+            'idmedecin' => 'required|numeric'
+           
+         ],
+        [
+          'daterendezvous.required' => "Le date du rendez vous est obligatoire",
+          'motif.required'  => "Le date de fin d'occupation est obligatoire",
+          'idchambre.required' => "L'id de la chambre n'est pas selectionnez",
+          'idmedecin.required' => "L'id du medecin n'est pa selectionnez",
+          'daterendezvous.date_format'  => "le format de la date de rendez vous n'est pas valide ' format valide : Year-Month-Day Time example : 2019-05-11 10:30",
+          'motif.string' => "Format Motif invalide",
+          'motif.min' => "Veuillez saisir un motif significatif",
+          'motif.max' => "Taille max motif depassée",
+          'idchambre.numeric' => "L'id de la chambre n'est pas selectionnez",
+          'idmedecin.numeric' => "L'id du medecin n'est pa selectionnez",
+          'daterendezvous.unique' => "le patient à deja un rendez vous dans cette date"
+          
+
+          
+           
+         ]
+          
+      );
+
        $RDV = RDV::find($id);
        $RDV->Date_RDV = $request->input('daterendezvous');
        $RDV->Motif = $request->input('motif');
        $RDV->id_patient = $request->input('idpatient');
        $RDV->id_medecin = $request->input('idmedecin');
        $RDV->save();
-       return redirect('/TodaysRdvs')->with('success','Bien modifié');
+       return redirect('/DRDV')->with('success','Bien modifié');
     }
 
     

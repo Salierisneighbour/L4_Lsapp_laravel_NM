@@ -24,12 +24,12 @@
 
                     <div class="form-group">
                         <label for="ToShow">Texte à afficher </label>
-                        <textarea name="ToShow"  class="form-control" id="ToShow" rows="3" placeholder="Ce que va être afficher">{{$post->Fbody}}</textarea>
+                        <textarea name="ToShow"  class="form-control" id="ToShow" rows="3" placeholder="Texte à afficher">{{$post->Fbody}}</textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="ReadMore">Read More</label>
-                        <textarea  name="ReadMore" class="form-control" id="ReadMore" rows="9"   placeholder="Ce que va être afficher apres click sur read more">{{$post->Mbody}}</textarea>
+                        <textarea  name="ReadMore" class="form-control" id="ReadMore" rows="9"   placeholder="Lire plus">{{$post->Mbody}}</textarea>
                     </div>
                
 

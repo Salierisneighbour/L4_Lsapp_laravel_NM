@@ -14,7 +14,7 @@
     </div>
   <script>
          window.setTimeout(function() {
-                    $(".alert").fadeTo(700, 0).slideUp(700, function(){
+                    $(".alert:not(.alert-danger)").fadeTo(700, 0).slideUp(700, function(){
                     $(this).remove(); 
          });
         }, 8000)

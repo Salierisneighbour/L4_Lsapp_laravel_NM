@@ -249,7 +249,7 @@
                            <img class="card-img-top " src="storage/cover_images/{{$post->cover_image}}" width="100%" height="300px">
                                <div class="card-body">
                                <h4 class="card-title">{{$post->title}}</h4>
-                               <p class="card-text">{{$post->Fbody}}</p>
+                               <p class="card-text">{!!$post->Fbody!!}</p>
                                <p class="card-text"><small class="text-muted">Ecris le {{$post->created_at}}</small></p>
                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter{{ $loop->iteration }}" href="/posts/{{$post->id}}">
                                         Read More
@@ -273,7 +273,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                 {{$post->Mbody}}
+                 {!!$post->Mbody!!}
 
             </div>
             <div class="modal-footer">
@@ -386,7 +386,7 @@
                           </div>
                           <div class="form-group">
                               <label for="form-subject">Telephone</label>
-                              <input type="text" class="form-control" id="form-subject" placeholder="Subject" name="telephone">
+                              <input type="text" class="form-control" id="form-subject" placeholder="Telephone" name="telephone">
                           </div>
                           <div class="form-group">
                               <label for="form-message">Send your Message</label>

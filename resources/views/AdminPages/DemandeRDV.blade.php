@@ -115,7 +115,7 @@
                                 <div class="modal-footer">
                                     
                                     <button type="submit" class="btn btn-info btn-lg" style="width:100%"><i
-                                            class="fas fa-check-circle"></i>Modifier</button>
+                                            class="fas fa-check-circle"></i>Affecter</button>
                                 </div>
                             </div>
                         </form>

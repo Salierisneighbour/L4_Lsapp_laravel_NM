@@ -24,11 +24,11 @@
                                <img class="card-img-top " src="storage/cover_images/{{$post->cover_image}}" width="100%" height="300">
                                <div class="card-body">
                                <h4 class="card-title">{{$post->title}}</h4>
-                               <p class="card-text">{{$post->Fbody}}</p>
+                               <p class="card-text">{!!$post->Fbody!!}</p>
                                <p class="card-text"><small class="text-muted">Ecris le {{$post->created_at}}</small></p>
                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter{{ $loop->iteration }}" href="/posts/{{$post->id}}">
                                         Show 
-                                    </button>
+                                </button>
                                </div>
                               
                            </div>
@@ -48,7 +48,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                 {{$post->Mbody}}
+                 {!!$post->Mbody!!}
 
             </div>
             <div class="modal-footer">

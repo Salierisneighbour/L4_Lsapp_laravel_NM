@@ -24,12 +24,12 @@
 
                     <div class="form-group">
                         <label for="ToShow">Texte à afficher </label>
-                        <textarea name="ToShow" class="form-control" id="ToShow" rows="3" placeholder="Ce que va être afficher"></textarea>
+                        <textarea id="ToShow" name="ToShow" class="form-control textarea" id="ToShow" rows="3" placeholder="Texte à affihcer"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="ReadMore">Read More</label>
-                        <textarea  name="ReadMore" class="form-control" id="ReadMore" rows="9" placeholder="Ce que va être afficher apres click sur read more"></textarea>
+                        <textarea  id="ReadMore" name="ReadMore" class="form-control textarea"  rows="9" placeholder="Lire plus"></textarea>
                     </div>
                
 

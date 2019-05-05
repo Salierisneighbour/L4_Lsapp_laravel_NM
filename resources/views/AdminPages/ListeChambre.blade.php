@@ -103,9 +103,17 @@
                           <input type="text" class="form-control" id="form-Lit" placeholder="Nombre de lit" name="Lit" value="{{$chambre->Nblit}}">
                       </div>
                       <div class="form-group">
-                          <label for="form-Etat">Etat d'occupation</label>
-                          <input type="text" class="form-control" id="form-Etat"  placeholder="Etat d'occupation" name="Etat" value="{{$chambre->EtatOccup}}">
-                      </div>
+                        <label for="inputState3">Etat d'occupation</label>
+                        <select name="Etat" id="inputState3" class="form-control">
+                        @if($chambre->EtatOccup=="Occupée")
+                        <option selected value="Occupée">{{$chambre->EtatOccup}}</option>
+                        <option value="Libre">Libre</option>
+                        @else
+                        <option selected value="Libre">{{$chambre->EtatOccup}}</option>
+                        <option value="Occupée">Occupée</option>
+                        @endif
+                        </select>
+                    </div>
 
 
 
@@ -199,9 +207,15 @@
                             <label for="form-Lit">Nombre de lit</label>
                             <input type="text" class="form-control" id="form-Lit" placeholder="Nombre de lit" name="Lit">
                         </div>
+                       
                         <div class="form-group">
-                            <label for="form-Etat">Etat d'occupation</label>
-                            <input type="text" class="form-control" id="form-Etat"  placeholder="Etat d'occupation" name="Etat">
+                            <label for="inputState3">Etat d'occupation</label>
+                            <select name="Etat" id="inputState3" class="form-control">
+                            <option selected>Selectionez...</option>
+                            <option value="Occupée">Occupée</option>
+                            <option value="Libre">Libre</option>
+                           
+                            </select>
                         </div>
 
 

@@ -34,7 +34,7 @@ Route::post('/Conseil','Demande_Conseil@store')->name('DemandeConseil.store');
 Route::get('/DConseil', 'Demande_Conseil@Liste');
 
 
-Route::post('/RDV','RdvDemande@store')->name('RdvDemande.store');
+Route::post('/RDV','Envoidemande@store')->name('RdvDemande.store');
 
 Route::get('/DRDV', 'RdvDemande@Liste');
 

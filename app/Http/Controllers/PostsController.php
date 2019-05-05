@@ -8,6 +8,13 @@ use App\Post;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -37,13 +44,30 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-       $this->validate($request,[
-              'title' => 'required',
-              'ReadMore' => 'required',
-              'ToShow' => 'required',
-              'cover_image' => 'image|nullable|max:1999'
+        $this->validate($request,[
+            'title' => 'required|max:191|string|max:191',
+            'ReadMore' => 'required|string|max:16777216',
+            'ToShow' => 'required|string|max:16777216',
+            'cover_image' => 'image|nullable|max:1999'
 
-       ]);
+     ],
+     [
+          'title.required' => 'Le titre doit être remplis',
+          'ToShow.required'  => "le texte à afficher doit être remplis",
+          'ReadMore.required' => "le champ 'lire plus' doit être remplis",
+          'cover_image.image' => "le format de l'image n'est pa valide",
+          'title.max' => "le titre est trop long ",
+          'title.string' => "le format du titre n'est pa valide",
+          'ToShow.string' => "le format du champ lire plus n'est pa validee",
+          'title.string' => "le format du titre n'est pa valide",
+          'cover_image.max' => "la taille de max de l'image est dépassée",
+          'title.max' => "la taille de max de titre est dépassée maximun 191",
+          'ToShow.max' => "la taille du texte à afficher est dépassée",
+          'ToShow.max' => "la taille maximun du champ lire plus  est dépassée"
+           
+     ]
+          
+     );
 
        //Handle file upload
        if($request->hasFile('cover_image')){
@@ -67,8 +91,8 @@ class PostsController extends Controller
        //create post
        $post = new Post;
        $post->title = $request->input('title');
-       $post->Fbody = $request->input('ReadMore');
-       $post->Mbody = $request->input('ToShow');
+       $post->Fbody = $request->input('ToShow');
+       $post->Mbody = $request->input('ReadMore');
        $post->cover_image = $fileNameToStore;
        $post->save();
 
@@ -111,13 +135,29 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'title' => 'required',
-            'ReadMore' => 'required',
-            'ToShow' => 'required',
+            'title' => 'required|max:191|string|max:191',
+            'ToShow' => 'required|string|max:16777216',
+            'ToShow' => 'required|string|max:16777216',
             'cover_image' => 'image|nullable|max:1999'
 
-     ]);
-
+     ],
+     [
+          'title.required' => 'Le titre doit être remplis',
+          'ToShow.required'  => "le texte à afficher doit être remplis",
+          'ReadMore.required' => "le champ 'lire plus' doit être remplis",
+          'cover_image.image' => "le format de l'image n'est pa valide",
+          'title.max' => "le titre est trop long ",
+          'title.string' => "le format du titre n'est pa valide",
+          'ToShow.string' => "le format du champ lire plus n'est pa validee",
+          'title.string' => "le format du titre n'est pa valide",
+          'cover_image.max' => "la taille de max de l'image est dépassée",
+          'title.max' => "la taille de max de titre est dépassée maximun 191",
+          'ToShow.max' => "la taille du texte à afficher est dépassée",
+          'ToShow.max' => "la taille maximun du champ lire plus  est dépassée"
+           
+     ]
+          
+     );
      //Handle file upload
      if($request->hasFile('cover_image')){
          //Get filename with the extension
@@ -137,8 +177,8 @@ class PostsController extends Controller
      //create post
      $post =  Post::find($id);
      $post->title = $request->input('title');
-     $post->Fbody = $request->input('ReadMore');
-     $post->Mbody = $request->input('ToShow');
+     $post->Fbody = $request->input('ToShow');
+     $post->Mbody = $request->input('ReadMore');
      if($post->cover_image != 'noimage.jpg'){
         Storage::delete('public/cover_images/'.$post->cover_image);
 

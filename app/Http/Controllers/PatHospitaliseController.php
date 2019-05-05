@@ -10,6 +10,13 @@ use DB;
 
 class PatHospitaliseController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -45,6 +52,31 @@ class PatHospitaliseController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'DBOcuup' => 'required|date_format:Y-m-d|before:DFOcuup',
+            'DFOcuup' => 'required|date_format:Y-m-d|after:DBOcuup',
+            'idchambre' => 'required|numeric',
+            'idpatient' => 'required|numeric'
+           
+         ],
+        [
+          'DBOcuup.required' => "Le date de debut d'occupation est obligatoire",
+          'DFOcuup.required'  => "Le date de fin d'occupation est obligatoire",
+          'idchambre.required' => "L'id de la chambre n'est pas selectionnez",
+          'idpatient.required' => "L'id du patient n'est pa selectionnez",
+          'DBOcuup.date_format'  => "le format de la date de debut d'occupation n'est pas valide ' format valide : Year-Month-Day example:2019-06-11",
+          'DFOcuup.date_format' => "le format de la date de fn d'occupation n'est pas valide ' format valide : Year-Month-Day example:2019-06-11",
+          'idchambre.numeric' => "L'id de la chambre n'est pas selectionnez",
+          'idpatient.numeric' => "L'id du patient n'est pa selectionnez",
+          'DBOcuup.before' => "Le date de debut d'occupation ne doit pas être plus grand que la date de fin d'occupation",
+          'DFOcuup.after'  => "Le date de fin d'occupation ne doit pas être plus petit que la date de debut d'occupation",
+          
+
+          
+           
+         ]
+          
+      );
         $Occup = new OccupeChambre;
         $Occup->DateDebutOccup = $request->input('DBOcuup');
         $Occup->DateFinOccup = $request->input('DFOcuup');
@@ -85,6 +117,31 @@ class PatHospitaliseController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'DBOcuup' => 'required|date_format:Y-m-d|before:DFOcuup',
+            'DFOcuup' => 'required|date_format:Y-m-d|after:DBOcuup',
+            'idchambre' => 'required|numeric',
+            'idpatient' => 'required|numeric'
+           
+         ],
+        [
+          'DBOcuup.required' => "Le date de debut d'occupation est obligatoire",
+          'DFOcuup.required'  => "Le date de fin d'occupation est obligatoire",
+          'idchambre.required' => "L'id de la chambre n'est pas selectionnez",
+          'idpatient.required' => "L'id du patient n'est pa selectionnez",
+          'DBOcuup.date_format'  => "le format de la date de debut d'occupation n'est pas valide ' format valide : Year-Month-Day example:2019-06-11",
+          'DFOcuup.date_format' => "le format de la date de fn d'occupation n'est pas valide ' format valide : Year-Month-Day example:2019-06-11",
+          'idchambre.numeric' => "L'id de la chambre n'est pas selectionnez",
+          'idpatient.numeric' => "L'id du patient n'est pa selectionnez",
+          'DBOcuup.before' => "Le date de debut d'occupation ne doit pas être plus grand que la date de fin d'occupation",
+          'DFOcuup.after'  => "Le date de fin d'occupation ne doit pas être plus petit que la date de debut d'occupation",
+          
+
+          
+           
+         ]
+          
+         );
         $Occup =  OccupeChambre::find($id);
         $Occup->DateDebutOccup = $request->input('DBOcuup');
         $Occup->DateFinOccup = $request->input('DFOcuup');

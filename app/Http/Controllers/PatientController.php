@@ -3,12 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Patient;
 
 
 
 class PatientController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -41,6 +50,53 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request,[
+            'nom' => 'required|alpha|max:100',
+            'prenom' => 'required|alpha|max:100',
+            'adresse' => 'required|string|max:100',
+            'telephone' => 'required|regex:/^[\+(00)][1-2]?[0-9]?[0-9]\d{9}+$/i',//'email' => 'regex:/^.+@.+$/i'
+            'email' => 'required|email|max:200',
+            'inlineRadioOptions' => 'required',
+            'datedenaissance' => 'required|date_format:Y-m-d',
+            'profession' => 'required|alpha|max:50',
+            'etatcivil' => 'required|alpha|max:30',
+            'assurence' => ['required',Rule::in(['CNOPS','CNSS'])]
+
+         ],
+        [
+          'nom.required' => 'Le nom du patient est obligatoire',
+          'prenom.required'  => "Le prenom du patient est obligatoire",
+          'adresse.required' => "l'adresse est obligatoire",
+          'telephone.required' => 'Le telephone est obligatoire',
+          'email.required'  => "L'email est obligatoire",
+          'inlineRadioOptions.required' => "le champ sexe n'est pas selectionee",
+          'datedenaissance.required' => 'La date de naissance est obligatoire',
+          'profession.required'  => "La profession est obligatoire",
+          'etatcivil.required' => "L'etat civil est obligatoire",
+          'nom.alpha' => "Le nom ne doit contenir que des lettres",
+          'prenom.alpha' => "Le prenom ne doit contenir que des lettres",
+          'adresse.string' => "Le format de l'adresse n'est pas valide",
+          'profession.alpha' => 'la profession ne doit contenir que des lettres',
+          'etatcivil.alpha' => "L'etat civil ne doit contenir que des lettres",
+          'nom.max' => "le nom est trop long",
+          'prenom.max' => "le prenom est treop long",
+          'email.email' => "format email non valide",
+          'email.max' => "l'email est trop long",
+          'adresse.max' =>"l'adresse est trop long",
+          'datedenaissance.date_format' => "le format de la date n'est pas valide ' format valide : Year-Month-Day example : 1995-06-11",
+          'profession.max' => "la profession est trop long",
+          'etatcivil.max' => "l'etat civiL est trop long",
+          'assurence.required' => "l'assurence est obligatoire",
+          'assurence.in' => "l'assurence doit être soit CNOPS ou CNSS",
+          
+          'telephone.regex' => "telephone invalide"
+          
+           
+         ]
+          
+     );
+
         $Patient = new Patient;
         $Patient->NomPatient = $request->input('nom');
         $Patient->PrenomPatient = $request->input('prenom');
@@ -88,6 +144,52 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'nom' => 'required|alpha|max:100',
+            'prenom' => 'required|alpha|max:100',
+            'adresse' => 'required|string|max:100',
+            'telephone' => 'required|regex:/^[\+(00)][1-2]?[0-9]?[0-9]\d{9}+$/i',//'email' => 'regex:/^.+@.+$/i'
+            'email' => 'required|email|max:200',
+            'inlineRadioOptions' => 'required',
+            'datedenaissance' => 'required|date_format:Y-m-d',
+            'profession' => 'required|alpha|max:50',
+            'etatcivil' => 'required|alpha|max:30',
+            'assurence' => ['required',Rule::in(['CNOPS','CNSS'])]
+
+         ],
+        [
+          'nom.required' => 'Le nom du patient est obligatoire',
+          'prenom.required'  => "Le prenom du patient est obligatoire",
+          'adresse.required' => "l'adresse est obligatoire",
+          'telephone.required' => 'Le telephone est obligatoire',
+          'email.required'  => "L'email est obligatoire",
+          'inlineRadioOptions.required' => "le champ sexe n'est pas selectionee",
+          'datedenaissance.required' => 'La date de naissance est obligatoire',
+          'profession.required'  => "La profession est obligatoire",
+          'etatcivil.required' => "L'etat civil est obligatoire",
+          'nom.alpha' => "Le nom ne doit contenir que des lettres",
+          'prenom.alpha' => "Le prenom ne doit contenir que des lettres",
+          'adresse.string' => "Le format de l'adresse n'est pas valide",
+          'profession.alpha' => 'la profession ne doit contenir que des lettres',
+          'etatcivil.alpha' => "L'etat civil ne doit contenir que des lettres",
+          'nom.max' => "le nom est trop long",
+          'prenom.max' => "le prenom est treop long",
+          'email.email' => "format email non valide",
+          'email.max' => "l'email est trop long",
+          'adresse.max' =>"l'adresse est trop long",
+          'datedenaissance.date_format' => "le format de la date n'est pas valide ' format valide : Year-Month-Day example : 1995-06-11",
+          'profession.max' => "la profession est trop long",
+          'etatcivil.max' => "l'etat civiL est trop long",
+          'assurence.required' => "l'assurence est obligatoire",
+          'assurence.in' => "l'assurence doit être soit CNOPS ou CNSS",
+          
+          'telephone.regex' => "telephone invalide"
+          
+           
+         ]
+          
+     );
+
         $Patient = Patient::find($id);
         $Patient->NomPatient = $request->input('nom');
         $Patient->PrenomPatient = $request->input('prenom');

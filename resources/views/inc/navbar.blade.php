@@ -11,7 +11,8 @@
             </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
+                        
+                        <li class="nav-item">   
                             <a class="nav-link js-scroll-trigger" href="https://lsapp.dev/lsapp/public/">Qui somme nous</a>
                         </li>
                         <li class="nav-item">
@@ -38,18 +39,24 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
+                        @if(!Auth::guest())
                         @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
+                        @endif
                     @else
+                        
                         <li class="nav-item dropdown">
+                            
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="https://lsapp.dev/lsapp/public/">Front end</a>
+                                <a class="dropdown-item" href="https://lsapp.dev/lsapp/public/DRDV"">Back end</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

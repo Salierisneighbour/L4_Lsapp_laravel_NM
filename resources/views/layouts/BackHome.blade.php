@@ -17,9 +17,9 @@
     <link href="{{asset('Fonts/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
     <link href="{{asset('Icons/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('Icons/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+    <link href="{{asset('https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic')}}" rel="stylesheet"
         type="text/css">
-    <link rel="stylesheet" href="{{asset('css/Backlayoutcss.css')}}">
+    <link rel="stylesheet" href="{{asset('css/BackendCss.css')}}">
      @yield('Css')
 
     
@@ -144,6 +144,7 @@
     <script src="{{asset('jquery/jquery.min.js')}}"></script>
     <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/Backendjs.js')}}"></script>
+    
     <script type="text/javascript">
     /*Side bar function */
     $(document).ready(function () {
@@ -151,6 +152,12 @@
             $('#sidebar').toggleClass('active');
         });
     });
+    </script>
+    <script src="{{asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
+    <script>
+         $('textarea').ckeditor();
+         //$('.textarea').ckeditor(); // if class is prefered.
     </script>
     @yield('javascript')
 </body>
