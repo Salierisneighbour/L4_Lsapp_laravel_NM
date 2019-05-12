@@ -8,10 +8,7 @@
 <div class="container margin">
 <h2>Demande de rendez-vous</h2>
 <hr>
-<p>This table will be filled automatically this is just an example to show you how it would look if filled.
-    When you click on "Affecter" the list of available doctors and chambers shows up , no way of showing
-    this without database
-</p>
+
 </div>
 <div class="container">
 <div class="row">
@@ -141,6 +138,7 @@
                @endforeach
             </tbody>
         </table>
+        {{$LesDemandes->links()}}
         @else
         <div class="col-12">
         <div class="container margin">

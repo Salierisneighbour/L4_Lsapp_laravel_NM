@@ -21,7 +21,7 @@ class MedecinController extends Controller
      */
     public function index()
     {
-        $Medecins = Medecin::All();
+        $Medecins = Medecin::orderBy('id_medecin')->paginate(10);
     
         $routename='Medecin.destroy';
         $recordid=0;

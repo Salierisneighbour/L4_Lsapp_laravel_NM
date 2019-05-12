@@ -24,7 +24,7 @@ class ChambreController extends Controller
      */
     public function index()
     {
-       $chambres = Chambre::orderby('NumChambre','asc')->get();
+       $chambres = Chambre::orderby('NumChambre','asc')->paginate(10);
        $routename='Chambres.destroy';
        $recordid=0;
        return view('AdminPages.ListeChambre')->with('chambres' , $chambres)->with('routename',$routename)->with('recordid',$recordid);

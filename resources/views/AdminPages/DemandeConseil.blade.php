@@ -45,6 +45,7 @@
                     </tbody>
                 </table>
             </div>
+            {{$LesDemandes->links()}}
             @else
             <div class="container margin">
                 <div class="jumbotron">

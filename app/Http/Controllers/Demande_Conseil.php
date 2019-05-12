@@ -53,7 +53,7 @@ class Demande_Conseil extends Controller
     public function Liste()
     {
         
-        $LesDemandes = DemandeConseil::orderBy('created_at','desc')->get();
+        $LesDemandes = DemandeConseil::orderBy('created_at','desc')->paginate(10);
         return view('AdminPages.DemandeConseil')->with('LesDemandes', $LesDemandes);
     }
 

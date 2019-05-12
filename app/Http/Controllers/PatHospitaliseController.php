@@ -24,7 +24,7 @@ class PatHospitaliseController extends Controller
      */
     public function index()
     {
-        $Occups = OccupeChambre::All();
+        $Occups = OccupeChambre::orderby('id')->paginate(10);
         $Patients=Patient::ALL();
         $PatientsNonHosp= DB::select('SELECT * from `patients` where id_patient Not in (SELECT id_patient from `occupe_chambres`)');
         $Chambreslibre = DB::select('SELECT `chambres`.id_chambre , NumChambre ,Nblit   From `chambres`  group by `chambres`.id_chambre , NumChambre , Nblit having Nblit > (SELECT count(`occupe_chambres`.id_chambre) from `occupe_chambres` where `chambres`.id_chambre= `occupe_chambres`.id_chambre)');

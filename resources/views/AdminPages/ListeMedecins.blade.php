@@ -239,6 +239,7 @@
 
                 </div>
             </div>
+            {{$Medecins->links()}}
             @else
             <div class="container margin">
                     <div class="jumbotron">

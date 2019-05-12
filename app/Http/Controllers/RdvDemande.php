@@ -25,7 +25,7 @@ class RdvDemande extends Controller
     
     public function Liste()
     {
-        $LesDemandes = DemandeRDV::orderBy('created_at','desc')->get();
+        $LesDemandes = DemandeRDV::orderBy('created_at','desc')->paginate(15);
         $Patients = Patient::All();
         $Medecins = Medecin::All();
         $routename='TodaysRdvs.destroy';

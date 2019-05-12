@@ -42,14 +42,11 @@ p
 </div>
 <div class="row">
         <div class="container">
-                
-                    
-            <center> <a href="{{url('/FFPrint/{id}')}}" class="btnprn btn btn-success btn-lg">Imprimer</a></center>
+                <center> <a href="{{url('/OOprint/{id}')}}" class="btnprn btn btn-success btn-lg">imprimer</a></center>
 
-             
         </div>
     </div>
-    @foreach($lastfacture as $lastfacture)
+    @foreach($lastordo as $lastordo)
 <div class="row margin" >
     <div class="col-8">
         <h1>Le nom de clinique :<h1>
@@ -60,14 +57,14 @@ p
         
     </div>
     <div class="col-4">
-        <h1 >Facture </h1>
+        <h1 >Ordonance </h1>
     </div>
 
 </div>
 <div class="row">
         <div class="col-12">
-            <p>Numero facture : {{$lastfacture->NumFacture}}<p>
-            <P>Date :{{$lastfacture->Date}}<P>
+            <p>Numero facture : {{$lastordo->NumOrdo}}<p>
+            <P>Date :{{$lastordo->Date}}<P>
             <P>N° Patient : {{$Patient->id_patient}}<P>
             <P>Nom Patient : {{$Patient->NomPatient}}<P>
             <P>Prenom patient : {{$Patient->PrenomPatient}}<P>
@@ -78,7 +75,7 @@ p
 </div>
 <div class="row">
         <div class="col-12">
-           <h2 class="text-center">RÉSUMÉ DES FRAIS A VOTRE CHARGE</h2>
+           <h2 class="text-center">RÉSUMÉ </h2>
             
         </div>
         
@@ -92,10 +89,10 @@ p
                         <thead>
 
 
-                            <th>Pharamacie</th>
-                            <th>Hospitalisation</th>
-                            <th>Consulation</th>
-                            <th>Mode de payement</th>
+                            <th>Tire</th>
+                            <th>Observation</th>
+                            <th>Traitement</th>
+                            
                             
                             
                             
@@ -104,22 +101,18 @@ p
                         <tbody>
                             
                             <tr>
-                                <td>{{$lastfacture->Pharmacie}}</td>
-                                <td>{{$lastfacture->Hospitalisation}}</td>
-                                <td>{{$lastfacture->Consultation}}</td>
-                                <td>{{$lastfacture->Modepayement}}</td>
+                                <td>{{$lastordo->Titre}}</td>
+                                <td>{!!$lastordo->Observation!!}</td>
+                                <td>{!!$lastordo->Traintement!!}</td>
+                                
 
                             </tr>
-                            <tr>
-                                    <td class="weight" colspan="3">Montant</td>
-                                    <td align="center">{{$lastfacture->Montant}}</td>  
-    
-                            </tr>
+                           
                         </tbody>
                 </table>  
             </div>  
         </div>
-    
+      
     
 </div>
 @endforeach

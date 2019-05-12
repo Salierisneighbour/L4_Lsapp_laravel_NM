@@ -189,7 +189,7 @@
                 </div>
             </div>
         </div>
-
+        {{$Occups->links()}}
         @else
         <div class="container margin">
                 <div class="jumbotron">

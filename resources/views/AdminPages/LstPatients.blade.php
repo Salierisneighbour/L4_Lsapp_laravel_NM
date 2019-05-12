@@ -232,7 +232,7 @@
                 </div>
             </div>
         </div>
-
+        {{$Patients->links()}}
         @else
         <div class="container margin">
                 <div class="jumbotron">

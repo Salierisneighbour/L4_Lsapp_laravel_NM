@@ -25,7 +25,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $Patients = Patient::All();
+        $Patients = Patient::orderby('created_at','desc')->paginate(15);
     
         $routename='Patients.destroy';
         $recordid=0;

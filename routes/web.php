@@ -54,6 +54,12 @@ Route::put('/RDVupdating/{id}','RdvDemande@updating')->name('RdvDemande.updating
 
 Route::post('/FPrint/{id}','FOController@Fprint')->name('PrintFacture');
 
+Route::post('/Oprint/{id}','FOController@Oprint')->name('PrintOrdonance');
+
+Route::get('/FFPrint/{id}','FOController@FFprint');
+
+Route::get('/OOprint/{id}','FOController@OOprint');
+
 Auth::routes();
 
 

@@ -8,17 +8,23 @@
 <div class="container margin">
         <div class="row" style="margin-bottom:2rem;">
             <div class="col-6">
-                    <form class="needs-validation" novalidate> 
-                            <div class="form-group">
+                    <form class="needs-validation" action="{{route('PrintOrdonance',$Patient->id_patient)}}" method="post" novalidate> 
+                            @csrf    
+                        <div class="form-group">
+
                                 <label for="Date">Date</label>
-                                <input type="date" class="form-control" id="Date"
+                                <input name="Date" type="date" class="form-control" id="Date"
                                     placeholder="Date" required>
                             </div>
-
+                            <div class="form-group">
+                                <label for="Num">Numero de l'ordonance</label>
+                                <input name="Num" type="text" class="form-control" id="Num"
+                                    placeholder="Numero de l'ordonance" required>
+                            </div>
                             <div class="form-group">
                                     <label for="tire">Titre de l'ordonance</label>
-                                    <input type="text" class="form-control" id="tire"
-                                        placeholder="Numero de la facture" required>
+                                    <input name="Titre" type="text" class="form-control" id="tire"
+                                        placeholder="Titre de l'ordonance" required>
                                 </div>
                                 <div class="form-group">
                                         <label for="Nomdupatient">Nom du patient</label>
@@ -27,24 +33,25 @@
                                     </div>
                                     <div class="form-group">
                                             <label for="obrservation">Obrservation</label>
-                                            <textarea class="form-control" id="obrservation" rows="5" required></textarea>
+                                            <textarea name="obrservation" class="form-control" id="obrservation" rows="5" required></textarea>
                                         </div>
                                         <div class="form-group">
                                                 <label for="Traitement">Traintement</label>
-                                                <textarea class="form-control" id="Traitement" rows="5" required></textarea>
+                                                <textarea name="Traitement" class="form-control" id="Traitement" rows="5" required></textarea>
                                             </div>
-                        </form>
+                        
 
 
             </div>
             <div class="col-4" style="margin-top:2rem; margin-left:2rem;">
                 <div class="row">
-                    <button type="button" class="btn btn-primary btn-lrg">Imprimer</button>
-
+                    <button type="submit" class="btn btn-primary btn-lrg">Imprimer</button>
+                </form>
                 </div>
-
+            
             </div>
         </div>
+    
     </div>
 @endsection
 

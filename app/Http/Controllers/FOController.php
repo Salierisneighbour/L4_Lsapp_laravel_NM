@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Patient;
 use App\Facture;
 use Illuminate\Validation\Rule;
+use App\Ordonance;
+
 use DB;
 class FOController extends Controller
 {
@@ -80,5 +82,67 @@ class FOController extends Controller
 
 
     }
+
+
+
+
+    function Oprint(Request $request , $id)
+    { 
+        
+        $this->validate($request,[
+            'Date' => 'required|date_format:Y-m-d',
+            'Titre' => 'required|string',
+            'obrservation' => 'required|string',
+            'Traitement' => 'required|string',
+            'Num' => 'required|string'
+            
+
+         ],
+        [
+            "Date.required" =>"La date est obligatoire",
+            "Date.date_format" =>"la format de la date est invalide",
+            "Titre.required" => "le titre est obligatoire",
+            
+            "Titre.string" => "la format du titre est invalide",
+            
+            "obrservation.required" => "l'observation est obligatoire",
+            
+            "obrservation.string" => "la format de l'observation est invalide",
+           
+            "Traitement.required" => "le traitement  est obligatoire",
+
+            "Traitement.string" => "la format du traitement est invalide",
+
+            "Num.required" => "Le numero est obligatoire",
+
+            "Num.string" => "la format du numero est invalide",
+            
+         ]
+          
+     );
+        $Patient = Patient::find($id);
+        $Ordonnance = new Ordonance;
+        $Ordonnance->Titre = $request->input('Titre');
+        $Ordonnance->Observation = $request->input('obrservation');
+        $Ordonnance->Traintement = $request->input('Traitement');
+        $Ordonnance->NumOrdo = $request->input('Num');
+        $Ordonnance->Date = $request->input('Date');
+        $Ordonnance->id_patient = $Patient->id_patient;
+        $Ordonnance->save();
+        $lastordo = Ordonance::orderBy('created_at','desc')->take(1)->get();
+        return view('AdminPages.Oprint')->with('Patient',$Patient)->with('lastordo', $lastordo);
+
+
+    }
+    function OOprint($id)
+    {
+           $Patient = Patient::find($id);
+           $lastordo = Ordonance::orderBy('created_at','desc')->take(1)->get();
+           return view('AdminPages.Oprint')->with('Patient',$Patient)->with('lastordo', $lastordo);
+       
+    }
+    
+
+
 
 }
