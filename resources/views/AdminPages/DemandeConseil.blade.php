@@ -39,7 +39,7 @@
                             <td>{{$Demande->Telephone}}</td>
                             <td>{{$Demande->Message}}</td>
 
-                            <td><button type="button" class="btn btn-primary">Repondre</button></td>
+                            <td><a  class="btn btn-primary" href="https://mail.google.com/mail/u/0/#inbox?compose=new">Repondre</a></td>
                         </tr>
                     @endforeach 
                     </tbody>
