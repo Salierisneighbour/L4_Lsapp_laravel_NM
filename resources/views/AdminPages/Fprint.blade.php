@@ -10,7 +10,12 @@
 footer{
         display: none;
     }
-    .wrapper , .navbar{
+    .navbar{
+        display: none;
+    }
+    .dontshow
+    {
+        visibility:hidden;
         display: none;
     }
 
@@ -44,7 +49,7 @@ p
         <div class="container">
                 
                     
-            <center> <a href="{{url('/FFPrint/{id}')}}" class="btnprn btn btn-success btn-lg">Imprimer</a></center>
+            <center> <a  href="{{url('/FFPrint/{id}')}}" class="btnprn btn btn-success btn-lg dontshow">Imprimer</a></center>
 
              
         </div>

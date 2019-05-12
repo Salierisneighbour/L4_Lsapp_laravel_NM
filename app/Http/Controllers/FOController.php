@@ -136,12 +136,23 @@ class FOController extends Controller
     }
     function OOprint($id)
     {
-           $Patient = Patient::find($id);
+           
            $lastordo = Ordonance::orderBy('created_at','desc')->take(1)->get();
+           $idpatient = Ordonance::orderBy('created_at','desc')->take(1)->value('id_patient');
+           $Patient = Patient::find($idpatient);
            return view('AdminPages.Oprint')->with('Patient',$Patient)->with('lastordo', $lastordo);
        
     }
-    
+    function FFprint($id)
+    {
+           
+           $lastfacture  = Facture::orderBy('created_at','desc')->take(1)->get();
+           $idpatient = Facture::orderBy('created_at','desc')->take(1)->value('id_patient');
+           $Patient = Patient::find($idpatient);
+          
+           return view('AdminPages.Fprint')->with('Patient',$Patient)->with('lastfacture', $lastfacture);
+       
+    }
 
 
 

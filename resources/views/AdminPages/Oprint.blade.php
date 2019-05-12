@@ -3,18 +3,23 @@
 @section('Css')
 <style>
     
-@media print {
+    @media print {
   
 
 
-footer{
-        display: none;
-    }
-    .wrapper , .navbar{
-        display: none;
-    }
-
-}
+  footer{
+          display: none;
+      }
+      .navbar{
+          display: none;
+      }
+      .dontshow
+      {
+          visibility:hidden;
+          display: none;
+      }
+  
+  }
 p
 {
     font-size: 16px;
@@ -42,7 +47,7 @@ p
 </div>
 <div class="row">
         <div class="container">
-                <center> <a href="{{url('/OOprint/{id}')}}" class="btnprn btn btn-success btn-lg">imprimer</a></center>
+                <center> <a href="{{url('/OOprint/{id}')}}" class="btnprn btn btn-success btn-lg dontshow">imprimer</a></center>
 
         </div>
     </div>
